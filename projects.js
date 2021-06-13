@@ -6,7 +6,7 @@ const projects = [
     tag: "",
     img: "./images/spotify-clone.gif",
     code: "https://github.com/xmspix/spotify-clone",
-    demo: "http://mark-stoler.dynu.net/spotify/",
+    demo: "https://mark-stoler-spotify-client.herokuapp.com",
     featured: true,
   },
   {
