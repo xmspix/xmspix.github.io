@@ -2737,6 +2737,11 @@ input[type="radio"]:focus + label:before {
   width: 100%;
 }
 
+.image.cover {
+  object-fit: cover;
+  height: 15rem;
+}
+
 .image.main:first-child {
   margin-top: 0;
 }
