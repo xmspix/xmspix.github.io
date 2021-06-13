@@ -1,4 +1,6 @@
 window.addEventListener("load", (event) => {
+  const isMobile = window.innerWidth <= 768 ? true : false;
+
   document
     .querySelector(".bg")
     .appendChild(document.createElement("canvas")).id = "canvas";
@@ -35,8 +37,8 @@ window.addEventListener("load", (event) => {
       ctx.fill();
     }
   }
-
   particleArray.push(new Particle());
+  //   !isMobile && particleArray.push(new Particle());
 
   function handleParticles() {
     for (let i = 0; i < particleArray.length; i++) {
@@ -61,6 +63,10 @@ window.addEventListener("load", (event) => {
         i--;
       }
       if (particleArray.length < 50) particleArray.push(new Particle());
+      //   if (isMobile && particleArray.length < 20) return;
+      //   // particleArray.push(new Particle());
+      //   else if (!isMobile && particleArray.length < 50)
+      //     particleArray.push(new Particle());
     }
   }
 

@@ -78,12 +78,13 @@ const projects = [
   },
 ];
 
-//
-document.querySelector(".featured").innerHTML = projects
-  .filter((p) => p.featured)
-  .map(
-    (p) =>
-      `
+window.addEventListener("load", (event) => {
+  //
+  document.querySelector(".featured").innerHTML = projects
+    .filter((p) => p.featured)
+    .map(
+      (p) =>
+        `
   <article class="post featured">
             <header class="major">
               <h2><a href="#">${p.title}</a></h2>
@@ -112,13 +113,13 @@ document.querySelector(".featured").innerHTML = projects
             }
             </ul>
           </article>`
-  );
+    );
 
-const posts = projects
-  .filter((p) => !p.featured)
-  .map(
-    (p) =>
-      `  <article>
+  const posts = projects
+    .filter((p) => !p.featured)
+    .map(
+      (p) =>
+        `  <article>
          <header>
              <h2><a href="#">${p.title}</a></h2>
          </header>
@@ -143,7 +144,8 @@ const posts = projects
              
          </ul>
      </article>`
-  )
-  .join("");
+    )
+    .join("");
 
-document.querySelector(".posts").innerHTML = posts;
+  document.querySelector(".posts").innerHTML = posts;
+});
