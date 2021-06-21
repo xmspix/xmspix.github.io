@@ -87,10 +87,14 @@ window.addEventListener("load", (event) => {
         `
   <article class="post featured">
             <header class="major">
-              <h2><a href="#">${p.title}</a></h2>
+              <h2><a href="${
+                (p.code && p.code) || (p.demo && p.demo) || (p.more && p.more)
+              }">${p.title}</a></h2>
               <p>${p.description}</p>
             </header>
-            <a href="#" class="image main"
+            <a href="${
+              (p.code && p.code) || (p.demo && p.demo) || (p.more && p.more)
+            }" class="image main"
               ><img
                 src="${p.img}"
                 alt=""
@@ -121,14 +125,18 @@ window.addEventListener("load", (event) => {
       (p) =>
         `  <article>
          <header>
-             <h2><a href="#">${p.title}</a></h2>
+             <h2><a href="${
+               (p.code && p.code) || (p.demo && p.demo) || (p.more && p.more)
+             }">${p.title}</a></h2>
          </header>
-         <a href="#" class="image fit cover"><img src="${p.img}" alt="" /></a>
+         <a href="${
+           (p.code && p.code) || (p.demo && p.demo) || (p.more && p.more)
+         }" class="image fit cover"><img src="${p.img}" alt="" /></a>
          <p>${p.description}</p>
          <ul class="actions special">
          ${
            p.demo
-             ? `<li><a href=${p.demo} target="_blank" class="button">View</a></li>`
+             ? `<li><a href="${p.demo}" target="_blank" class="button">View</a></li>`
              : ""
          }
          ${
