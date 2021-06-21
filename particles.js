@@ -1,6 +1,4 @@
 window.addEventListener("load", (event) => {
-  const isMobile = window.innerWidth <= 768 ? true : false;
-
   document
     .querySelector(".bg")
     .appendChild(document.createElement("canvas")).id = "canvas";
@@ -13,6 +11,16 @@ window.addEventListener("load", (event) => {
   addEventListener("resize", () => {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
+  });
+
+  const mouseLocation = {
+    x: 0,
+    y: 0,
+  };
+
+  addEventListener("mousemove", (e) => {
+    mouseLocation.x = e.clientX;
+    mouseLocation.y = e.clientY;
   });
 
   const particleArray = [];
@@ -38,7 +46,6 @@ window.addEventListener("load", (event) => {
     }
   }
   particleArray.push(new Particle());
-  //   !isMobile && particleArray.push(new Particle());
 
   function handleParticles() {
     for (let i = 0; i < particleArray.length; i++) {
@@ -51,9 +58,20 @@ window.addEventListener("load", (event) => {
         if (distance < 100) {
           ctx.beginPath();
           ctx.strokeStyle = particleArray[i].color;
-          ctx.lineWidth = particleArray[i].size / 10;
           ctx.lineWidth = 0.1;
           ctx.moveTo(particleArray[i].x, particleArray[i].y);
+          ctx.lineTo(particleArray[j].x, particleArray[j].y);
+          ctx.stroke();
+        }
+
+        const mx = mouseLocation.x - particleArray[j].x;
+        const my = mouseLocation.y - particleArray[j].y;
+        const mDistance = Math.sqrt(mx * mx + my * my);
+        if (mDistance < 100) {
+          ctx.beginPath();
+          ctx.strokeStyle = particleArray[i].color;
+          ctx.lineWidth = 0.02;
+          ctx.moveTo(mouseLocation.x, mouseLocation.y);
           ctx.lineTo(particleArray[j].x, particleArray[j].y);
           ctx.stroke();
         }
@@ -63,10 +81,6 @@ window.addEventListener("load", (event) => {
         i--;
       }
       if (particleArray.length < 50) particleArray.push(new Particle());
-      //   if (isMobile && particleArray.length < 20) return;
-      //   // particleArray.push(new Particle());
-      //   else if (!isMobile && particleArray.length < 50)
-      //     particleArray.push(new Particle());
     }
   }
 
