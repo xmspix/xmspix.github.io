@@ -10,6 +10,23 @@ const projects = [
     featured: true,
   },
   {
+    title: "Price Chart",
+    description: "Simple, lightweight candlestick price chart",
+    tag: "",
+    img: "https://github.com/xmspix/chart/raw/main/docs/chart.png",
+    code: "https://github.com/xmspix/chart",
+    featured: false,
+  },
+  {
+    title: "Stock Market Terminal",
+    description: "HTML template for stock market terminal.",
+    tag: "",
+    img: "https://github.com/xmspix/stock-market-terminal/raw/main/images/terminal.png",
+    code: "https://github.com/xmspix/stock-market-terminal",
+    demo: "https://xmspix.github.io/stock-market-terminal/",
+    featured: false,
+  },
+  {
     title: "Stock Market Module",
     description: "Node.js module",
     tag: "",
